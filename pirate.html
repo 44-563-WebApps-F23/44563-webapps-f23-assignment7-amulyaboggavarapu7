@@ -1,111 +1,186 @@
 <!DOCTYPE html>
 <html>
-    <title>Treasure Hunt</title>
-    <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" 
-    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" 
-    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-    </head>
+<title>Treasure Hunt</title>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+</head>
+
 <body>
     <h1 class="text-primary">Find the treasure by Amulya Boggavarapu</h1>
-    <p  class="text-danger">Click on the locations to search for treasure, beware the traps</p>
-    <p id="locations"class="text-info-emphasis">Number of locations checked is zero.</p>
-    <p id="penalty"class="text-warning-emphasis">Penalty is zero.</p>
-    <p  class="text-warning-emphasis">Click for help.</p>
-    <p id="help" class="text-secondary-emphasis">Help report</p>
+    <p class="text-danger">Click on the locations to search for treasure, beware the traps</p>
+    <p id="locations" class="text-info-emphasis">Number of locations checked is zero.</p>
+    <p id="penalty" class="text-warning-emphasis">Penalty is zero.</p>
+    <button id="helpButton" class="text-warning-emphasis">Click for help.</button>
+    <p id="help" class="text-secondary-emphasis">Help report:</p>
+
     <div class="container">
         <div class="image-container">
-    <div class="row">
-            <div class="col-1">
-                <img src="location.jpg" alt="Starting Location">
-            </div>
-            <div class="col-1">
-                <img src="location.jpg" alt="Starting Location">
-            </div>
-            <div class="col-1">
-                <img src="location.jpg" alt="Starting Location">
-            </div>
-            <div class="col-1">
-                <img src="location.jpg" alt="Starting Location">
-            </div>
-            <div class="col-1">
-                <img src="location.jpg" alt="Starting Location">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-1">
-                <img src="location.jpg" alt="Starting Location">
-            </div>
-            <div class="col-1">
-                <img src="location.jpg" alt="Starting Location">
-            </div>
-            <div class="col-1">
-                <img src="location.jpg" alt="Starting Location">
-            </div>
-            <div class="col-1">
-                <img src="location.jpg" alt="Starting Location">
-            </div>
-            <div class="col-1">
-                <img src="location.jpg" alt="Starting Location">
-            </div> 
-        </div>
-        <div class="row">
-            <div class="col-1">
-                <img src="location.jpg" alt="Starting Location">
-            </div>
-            <div class="col-1">
-                <img src="location.jpg" alt="Starting Location">
-            </div>
-            <div class="col-1">
-                <img src="location.jpg" alt="Starting Location">
-            </div>
+            <div class="row">
                 <div class="col-1">
-                <img src="location.jpg" alt="Starting Location">
+                    <img src="location.jpg" alt="Starting Location" id="image1" onclick="check(0)">
+                </div>
+                <div class="col-1">
+                    <img src="location.jpg" alt="Starting Location" id="image2" onclick="check(1)">
+                </div>
+                <div class="col-1">
+                    <img src="location.jpg" alt="Starting Location" id="image3" onclick="check(2)">
+                </div>
+                <div class="col-1">
+                    <img src="location.jpg" alt="Starting Location" id="image4" onclick="check(3)">
+                </div>
+                <div class="col-1">
+                    <img src="location.jpg" alt="Starting Location" id="image5" onclick="check(4)">
+                </div>
             </div>
-            <div  class="col-1">
-                <img src="location.jpg" alt="Starting Location">
+            <div class="row">
+                <div class="col-1">
+                    <img src="location.jpg" alt="Starting Location" id="image6" onclick="check(5)">
+                </div>
+                <div class="col-1">
+                    <img src="location.jpg" alt="Starting Location" id="image7" onclick="check(6)">
+                </div>
+                <div class="col-1">
+                    <img src="location.jpg" alt="Starting Location" id="image8" onclick="check(7)">
+                </div>
+                <div class="col-1">
+                    <img src="location.jpg" alt="Starting Location" id="image9" onclick="check(8)">
+                </div>
+                <div class="col-1">
+                    <img src="location.jpg" alt="Starting Location" id="image10" onclick="check(9)">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    <img src="location.jpg" alt="Starting Location" id="image11" onclick="check(10)">
+                </div>
+                <div class="col-1">
+                    <img src="location.jpg" alt="Starting Location" id="image12" onclick="check(11)">
+                </div>
+                <div class="col-1">
+                    <img src="location.jpg" alt="Starting Location" id="image13" onclick="check(12)">
+                </div>
+                <div class="col-1">
+                    <img src="location.jpg" alt="Starting Location" id="image14" onclick="check(13)">
+                </div>
+                <div class="col-1">
+                    <img src="location.jpg" alt="Starting Location" id="image15" onclick="check(14)">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    <img src="location.jpg" alt="Starting Location" id="image16" onclick="check(15)">
+                </div>
+                <div class="col-1">
+                    <img src="location.jpg" alt="Starting Location" id="image17" onclick="check(16)">
+                </div>
+                <div class="col-1">
+                    <img src="location.jpg" alt="Starting Location" id="image18" onclick="check(17)">
+                </div>
+                <div class="col-1">
+                    <img src="location.jpg" alt="Starting Location" id="image19" onclick="check(18)">
+                </div>
+                <div class="col-1">
+                    <img src="location.jpg" alt="Starting Location" id="image20" onclick="check(19)">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    <img src="location.jpg" alt="Starting Location" id="image21" onclick="check(20)">
+                </div>
+                <div class="col-1">
+                    <img src="location.jpg" alt="Starting Location" id="image22" onclick="check(21)">
+                </div>
+                <div class="col-1">
+                    <img src="location.jpg" alt="Starting Location" id="image23" onclick="check(22)">
+                </div>
+                <div class="col-1">
+                    <img src="location.jpg" alt="Starting Location" id="image24" onclick="check(23)">
+                </div>
+                <div class="col-1">
+                    <img src="location.jpg" alt="Starting Location" id="image25" onclick="check(24)">
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div  class="col-1">
-                <img src="location.jpg" alt="Starting Location">
-            </div>
-            <div class="col-1">
-                <img src="location.jpg" alt="Starting Location">
-            </div>
-            <div class="col-1">
-                <img src="location.jpg" alt="Starting Location">
-            </div>
-            <div class="col-1">
-                <img src="location.jpg" alt="Starting Location">
-            </div>
-            <div class="col-1">
-                <img src="location.jpg" alt="Starting Location">
-            </div>   
-        </div>
-        <div class="row">
-            <div class="col-1">
-                <img src="location.jpg" alt="Starting Location">
-            </div>
-            <div class="col-1">
-                <img src="location.jpg" alt="Starting Location">
-            </div>
-            <div class="col-1">
-                <img src="location.jpg" alt="Starting Location">
-            </div>
-            <div class="col-1">
-                <img src="location.jpg" alt="Starting Location">
-            </div>
-            <div class="col-1">
-                <img src="location.jpg" alt="Starting Location">
-            </div>    
     </div>
-    </div>
-</div>
+    <script>
+        const ids = [
+            "image0", "image1", "image2", "image3", "image4",
+            "image5", "image6", "image7", "image8", "image9",
+            "image10", "image11", "image12", "image3", "image14",
+            "image15", "image16", "image17", "image18", "image19",
+            "image20", "image21", "image22", "image23", "image24"
+        ];
+        checkCount = 0;
+        penalty = 0;
+        lastCheck = 0;
+        treasureLocation = 5;
+        trapLocation = 18;
+        gameOver = false;
+        function check(position) {
+            if (gameOver) {
+                return;
+            }
+            const imageId = ids[position];
+            const imageElement = document.getElementById(imageId);
+            if (position === treasureLocation) {
+                imageElement.src = "treasure-chest.jpg";
+            } else if (position === trapLocation) {
+                imageElement.src = "trap.jpg";
+            } else {
+                imageElement.src = "hat.jpg";
+            }
+            checkCount++;
+            penalty++;
+            document.getElementById("locations").textContent = `Number of locations checked is ${checkCount}.`;
+            if (position === treasureLocation) {
+                gameOver = true;
+                penalty -= 3;
+            }
+            if (position === trapLocation) {
+                gameOver = true;
+                penalty += 4;
+            }
+            document.getElementById("penalty").textContent = `Penalty is ${penalty}.`;
+            lastCheck = position;
+            if (gameOver) {
+            }
+            function help() {
+                if (gameOver) return;
+                rowTreasure = Math.floor(treasureLocation / 5);
+                colTreasure = treasureLocation % 5;
+                rowLastCheck = Math.floor(lastCheck / 5);
+                colLastCheck = lastCheck % 5;
+                rowDiff = Math.abs(rowTreasure - rowLastCheck);
+                colDiff = Math.abs(colTreasure - colLastCheck);
+                var helpResult = "";
+                if (rowDiff + colDiff === 1) {
+                    helpResult = "Can smell it";
+                    penalty += 2;
+                } else if (rowDiff + colDiff === 2) {
+                    helpResult = "Close Matie";
+
+                    penalty += 2;
+                } else {
+                    helpResult = "Step Faster";
+
+                    penalty += 2;
+                }
+                document.getElementById("penalty").textContent = `Penalty is ${penalty}.`;
+                document.getElementById("help").textContent = `Help report: ${helpResult}.`;
+            }
+            document.getElementById("helpButton").onclick = help;
+        }
+    </script>
 </body>
+
 </html>
