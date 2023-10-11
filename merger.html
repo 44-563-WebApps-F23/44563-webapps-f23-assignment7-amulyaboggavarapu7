@@ -28,14 +28,15 @@
 <body>
     <h1>Amulya Boggavarapu Builds a merger</h1>
     <div class="flex-container" id="target">
-        <div>row item 1</div>
-        <div>row item 2</div>
-        <div>row item 3</div>
+        <div class="merger">row item 1</div>
+        <div class="merger">row item 2</div>
+        <div class="merger">row item 3</div>
     </div><br>
     <input type="text" id="inputText" placeholder="Enter text">
     <button onclick="addEnd()">Add end</button>
     <button onclick="addFront()">Add front</button>
     <button onclick="remove()">Remove</button>
+    <button onclick="swapItems()">Swap</button>
 </body>
 <script>
     function addEnd() {
@@ -64,6 +65,30 @@
             mergerItems[middleIndex].remove();
         }
     }
+    function swapItems() {
+    const mergerItems = document.getElementsByClassName("merger");
+    const length = mergerItems.length;
+    if (length >= 2) {
+        const index1 = Math.floor(Math.random() * length);
+        index2 = Math.floor(Math.random() * (length - 1)); 
+        if (index2 >= index1) {
+            index2++; 
+        }
+        item1 = mergerItems[index1];
+        item2 = mergerItems[index2];
+        parent = item1.parentElement;
+        nextSibling = item2.nextSibling;
+        if (nextSibling === item1) {
+            parent.insertBefore(item2, item1);
+        } else if (nextSibling === item2) {
+            parent.insertBefore(item1, item2);
+        } else {
+            parent.insertBefore(item1, nextSibling);
+            parent.insertBefore(item2, item1);
+        }
+    }
+}
+
 </script>
 
 </html>
