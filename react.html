@@ -40,13 +40,15 @@
         document.getElementById("react").onclick = recordTime;
 
         function startTime() {
-            for (let i = 0; i < 9; i++) {
-                setTimeout(function() {
-                    document.getElementById("counter").innerHTML = "Count: " + i;
-                }, (8 - i) * 1000);
-            }
-
+        const countdownDuration = Math.floor(Math.random() * 9) + 2; 
+        for (let i = 0; i < countdownDuration; i++) {
             setTimeout(function() {
+                document.getElementById("counter").innerHTML = "Count: " + i;
+            }, (countdownDuration - i) * 1000);
+        }
+        
+    }
+           setTimeout(function() {
                 if (reactTime === undefined) {
                     document.getElementById("target").innerHTML = "Too Slow";
                 } else {
@@ -55,8 +57,6 @@
                     document.getElementById("target").innerHTML = "Time was " + elapsed + "ms";
                 }
             }, 8000);
-        }
-
         document.getElementById("startTimer").onclick = startTime;
     </script>
 </body>
