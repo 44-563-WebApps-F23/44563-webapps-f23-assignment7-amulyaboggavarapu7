@@ -6,7 +6,7 @@
         .flex-container {
             display: flex;
             flex-direction: row;
-            background-color:pink ;
+            background-color: pink;
         }
 
         .flex-container>div {
@@ -36,19 +36,10 @@
     <button onclick="addEnd()">Add end</button>
     <button onclick="addFront()">Add front</button>
     <button onclick="remove()">Remove</button>
-    <button onclick="makeNewDiv()">Add one</button>
     <button onclick="swapItems()">Swap</button>
 
 </body>
 <script>
-    function makeNewDiv(){
-		let element = document.createElement("div")
-		element.innerHTML = "an item after 3"
-		element.style.color = "orange"
-		let container = document.getElementById('target')
-		container.appendChild(element)
-		
-	}
     function addEnd() {
         inputText = document.getElementById("inputText").value;
         element = document.createElement("div");
@@ -75,7 +66,7 @@
             mergerItems[middleIndex].remove();
         }
     }
-    /*function swapItems() {
+    function swapItems() {
         const mergerItems = document.getElementsByClassName("merger");
         const length = mergerItems.length;
         if (length >= 2) {
@@ -99,8 +90,5 @@
             }
         }
     }
-    */
-
 </script>
-
 </html>
