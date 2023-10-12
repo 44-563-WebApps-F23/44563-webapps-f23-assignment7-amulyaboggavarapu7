@@ -22,6 +22,8 @@
     <p id="penalty" class="text-warning-emphasis">Penalty is zero.</p>
     <button id="helpButton" class="text-warning-emphasis">Click for help.</button>
     <p id="help" class="text-secondary-emphasis">Help report:</p>
+    <button id="newGameButton" class="text-warning-emphasis">New Game</button>
+    
 
     <div class="container">
         <div class="image-container">
@@ -116,7 +118,7 @@
         const ids = [
             "image0", "image1", "image2", "image3", "image4",
             "image5", "image6", "image7", "image8", "image9",
-            "image10", "image11", "image12", "image3", "image14",
+            "image10", "image11", "image12", "image13", "image14",
             "image15", "image16", "image17", "image18", "image19",
             "image20", "image21", "image22", "image23", "image24"
         ];
@@ -178,24 +180,29 @@
             }
             document.getElementById("helpButton").onclick = help;
         }
-        /*let trapLocation;
-        let treasureLocation;
-        function newGame() {
-            trapLocation = Math.floor(Math.random() * 25);
+        function initializeLocations() {
             treasureLocation = Math.floor(Math.random() * 25);
+            trapLocation = Math.floor(Math.random() * 25);
+            while (treasureLocation === trapLocation) {
+                trapLocation = Math.floor(Math.random() * 25);
+            }
+        }
+        function resetGame() {
+            initializeLocations();
             checkCount = 0;
             penalty = 0;
             lastCheck = 0;
             gameOver = false;
+            for (let i = 0; i < ids.length; i++) {
+                const imageElement = document.getElementById(ids[i]);
+                imageElement.src = "location.jpg";
+            }
             document.getElementById("locations").textContent = "Number of locations checked is zero.";
             document.getElementById("penalty").textContent = "Penalty is zero.";
             document.getElementById("help").textContent = "Help report:";
         }
-        newGame();
-        document.getElementById("newGameButton").onclick = newGame;
-        <button id="newGameButton">New Game</button>
-        */
+        document.getElementById("newGameButton").addEventListener("click", resetGame);
+        initializeLocations(); 
     </script>
 </body>
-
 </html>
